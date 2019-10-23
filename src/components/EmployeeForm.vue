@@ -2,9 +2,23 @@
   <div id="employee-form">
     <form @submit.prevent="handleSubmit">
       <label>Employee name</label>
-      <input v-model="employee.name" type="text" />
+      <input
+        ref="first"
+        type="text"
+        :class="{'has-error': submitting && invalidName}"
+        v-model="employee.name"
+        @focus="clearStatus"
+        @keypress="clearStatus"
+      />
       <label>Employee Email</label>
-      <input v-model="employee.email" type="text" />
+      <input
+        type="text"
+        :class="{'has-error': submitting && invalidEmail}"
+        v-model="employee.email"
+        @focus="clearStatus"
+      />
+      <p v-if="error && submitting" class="error-message">❗Please fill out all required fields</p>
+      <p v-if="success" class="success-message">✅ Employee successfully added</p>
       <button>Add Employee</button>
     </form>
   </div>
@@ -51,11 +65,11 @@ export default {
   },
   computed: {
     invalidName() {
-      return (this.employee.name = "");
+      return this.employee.name === "";
     },
 
     invalidEmail() {
-      return (this.employee.email = "");
+      return this.employee.email === "";
     }
   }
 };
