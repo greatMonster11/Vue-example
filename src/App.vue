@@ -34,6 +34,11 @@ export default {
           id: 3,
           name: "Dinesh Chugtai",
           email: "dinesh@piedpiper.com"
+        },
+        {
+          id: 4,
+          name: "John Cena",
+          email: "cenation@gmail.com"
         }
       ]
     };
