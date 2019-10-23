@@ -2,7 +2,7 @@
   <div id="app" class="small-container">
     <h1>Employees</h1>
 
-    <employee-table />
+    <employee-table v-bind:employees="employees" />
   </div>
 </template>
 
@@ -14,6 +14,7 @@ export default {
   components: {
     EmployeeTable
   },
+  // Data looks like state in React
   data() {
     return {
       employees: [
