@@ -2,9 +2,9 @@
   <div id="employee-form">
     <form>
       <label>Employee name</label>
-      <input type="text" />
+      <input v-model="employee.name" type="text" />
       <label>Employee Email</label>
-      <input type="text" />
+      <input v-model="employee.email" type="text" />
       <button>Add Employee</button>
     </form>
   </div>
