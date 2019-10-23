@@ -49,10 +49,13 @@ export default {
       }
 
       this.$emit("add:employee", this.employee);
+      this.$refs.first.focus();
+
       this.employee = {
         name: "",
         email: ""
       };
+
       this.error = false;
       this.success = true;
       this.submittin = false;
