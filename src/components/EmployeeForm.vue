@@ -15,6 +15,9 @@ export default {
   name: "employee-form",
   data() {
     return {
+      submitting: false,
+      error: false,
+      success: false,
       employee: {
         name: "",
         email: ""
@@ -23,7 +26,36 @@ export default {
   },
   methods: {
     handleSubmit() {
+      this.submitting = true;
+      this.clearStatus();
+
+      if (this.invalidName || this.invalidEmail) {
+        this.error = true;
+        return;
+      }
+
       this.$emit("add:employee", this.employee);
+      this.employee = {
+        name: "",
+        email: ""
+      };
+      this.error = false;
+      this.success = true;
+      this.submittin = false;
+    },
+
+    clearStatus() {
+      this.success = false;
+      this.error = false;
+    }
+  },
+  computed: {
+    invalidName() {
+      return (this.employee.name = "");
+    },
+
+    invalidEmail() {
+      return (this.employee.email = "");
     }
   }
 };
