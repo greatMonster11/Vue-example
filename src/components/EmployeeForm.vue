@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     handleSubmit() {
-      alert("what the heck !!");
+      this.$emit("add:employee", this.employee);
     }
   }
 };
